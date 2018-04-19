@@ -32,5 +32,12 @@ class App {
   //构造ctx
   createContext(req, res) {
     //每个请求都要创建ctx对象
+    //this.context是这个ctx对象的原型
+    let ctx = Object.create(this.context);
+    ctx.request = Object.create(this.request);
+    ctx.response = Object.create(this.response);
+    //从外面回调那里拿到原生的req
+    ctx.req = ctx.request.req = req;
+    c;
   }
 }
