@@ -21,4 +21,8 @@ class App {
     let server = http.createServer(this.callbackFunc);
     server.listen(...args);
   }
+  //挂载回调
+  use(fn) {
+    this.callbackFunc = fn;
+  }
 }
