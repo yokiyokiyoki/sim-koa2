@@ -17,3 +17,4 @@ const res = {
     this.res.statusCode = code;
   }
 };
+module.exports = res;
