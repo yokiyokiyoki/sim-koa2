@@ -13,3 +13,7 @@ function delegateGet(property, name) {
     return this[property][name];
   });
 }
+
+//设置req要代理的setter和getter
+let requestSet = [];
+let requestGet = ["query"];
