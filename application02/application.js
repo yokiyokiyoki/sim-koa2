@@ -2,3 +2,8 @@
 //封装node原生的request对象，封装node原生的response对象
 //context是回调函数上下文,挂在了koa的req和res对象
 //通过对象getter和setter来封装
+
+const http = require("http");
+const context = require("context");
+const request = require("./request");
+const response = require("./response");
