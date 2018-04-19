@@ -18,7 +18,7 @@ class App {
   }
   //监听端口，开启服务
   listen(...args) {
-    let server = http.createServer(this.callbackFunc);
+    let server = http.createServer(this.callback());
     server.listen(...args);
   }
   //挂载回调
@@ -27,7 +27,12 @@ class App {
   }
   //处理传进来的回调
   callback() {
-    return (req, res) => {};
+    return (req, res) => {
+      //创建上下文，将req，res挂载到ctx
+      let ctx = this.createContext(req, res);
+      let respond = () => this.responseBody(ctx);
+      this.callbackFunc(ctx).then(respond);
+    };
   }
   //构造ctx
   createContext(req, res) {
@@ -41,5 +46,15 @@ class App {
     //从外面回调那里拿到原生的res
     ctx.res = ctx.response.res = res;
     return ctx;
+  }
+  //响应客户端
+  responseBody(ctx) {
+    let body = ctx.body;
+    if (typeof body === "string") {
+      //如果是'hi yoki'这种的
+      ctx.res.end(body);
+    } else if (typeof body === "object") {
+      ctx.res.end(JSON.stringify(body));
+    }
   }
 }
