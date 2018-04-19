@@ -32,6 +32,7 @@ class App {
       //创建上下文，将req，res挂载到ctx
       let ctx = this.createContext(req, res);
       let respond = () => this.responseBody(ctx);
+      //外面use的参数ctx
       this.callbackFunc(ctx).then(respond);
     };
   }
@@ -59,3 +60,5 @@ class App {
     }
   }
 }
+
+module.exports = App;

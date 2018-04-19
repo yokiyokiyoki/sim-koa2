@@ -2,7 +2,7 @@ const koa = require("./application02/application");
 const app = new koa();
 
 //这里是async 函数,然后then里面执行抛出body内容出去
-app.use(async ctx => {
+app.use(ctx => {
   ctx.body = "hi" + ctx.query.name;
 });
 
