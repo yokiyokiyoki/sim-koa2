@@ -4,6 +4,16 @@
 //通过对象getter和setter来封装
 
 const http = require("http");
-const context = require("context");
+const context = require("./context02");
 const request = require("./request");
 const response = require("./response");
+
+class App {
+  constructor() {
+    //声明传进来的回调
+    this.callbackFunc;
+    this.context = context;
+    this.request = request;
+    this.response = response;
+  }
+}
