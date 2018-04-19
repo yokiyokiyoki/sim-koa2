@@ -25,7 +25,7 @@ class App {
   use(fn) {
     this.callbackFunc = fn;
   }
-  //处理传进来的回调
+  //获取http server所需的callback函数
   callback() {
     //回调函数是一个async函数，会返回promise对象
     return (req, res) => {
@@ -43,7 +43,6 @@ class App {
     let ctx = Object.create(this.context);
     ctx.request = Object.create(this.request);
     ctx.response = Object.create(this.response);
-    debugger;
     //从外面回调那里拿到原生的req,this.req.url
     ctx.req = ctx.request.req = req;
     //从外面回调那里拿到原生的res
