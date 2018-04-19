@@ -21,3 +21,21 @@ let requestGet = ["query"];
 /// response中要代理的setter和getter
 let responseSet = ["body", "status"];
 let responseGet = responseSet;
+
+requestSet.forEach(item => {
+  delegateSet("request", item);
+});
+
+requestGet.forEach(item => {
+  delegateGet("request", item);
+});
+
+responseSet.forEach(item => {
+  delegateSet("response", item);
+});
+
+responseGet.forEach(item => {
+  delegateGet("response", item);
+});
+
+module.exports = context;
