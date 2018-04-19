@@ -25,4 +25,12 @@ class App {
   use(fn) {
     this.callbackFunc = fn;
   }
+  //处理传进来的回调
+  callback() {
+    return (req, res) => {};
+  }
+  //构造ctx
+  createContext(req, res) {
+    //每个请求都要创建ctx对象
+  }
 }
