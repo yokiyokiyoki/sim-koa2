@@ -9,7 +9,6 @@ class App {
   //开启http server,传进来callback
   listen(...args) {
     const server = http.createServer(this.callbackFunc);
-
     server.listen(...args);
   }
   //挂载回调函数
