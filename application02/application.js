@@ -27,6 +27,7 @@ class App {
   }
   //处理传进来的回调
   callback() {
+    //回调函数是一个async函数，会返回promise对象
     return (req, res) => {
       //创建上下文，将req，res挂载到ctx
       let ctx = this.createContext(req, res);
@@ -41,7 +42,7 @@ class App {
     let ctx = Object.create(this.context);
     ctx.request = Object.create(this.request);
     ctx.response = Object.create(this.response);
-    //从外面回调那里拿到原生的req
+    //从外面回调那里拿到原生的req,this.req.url
     ctx.req = ctx.request.req = req;
     //从外面回调那里拿到原生的res
     ctx.res = ctx.response.res = res;
