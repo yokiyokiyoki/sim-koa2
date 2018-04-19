@@ -17,3 +17,7 @@ function delegateGet(property, name) {
 //设置req要代理的setter和getter
 let requestSet = [];
 let requestGet = ["query"];
+
+/// response中要代理的setter和getter
+let responseSet = ["body", "status"];
+let responseGet = responseSet;
