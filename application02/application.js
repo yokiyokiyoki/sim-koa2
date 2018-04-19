@@ -38,6 +38,6 @@ class App {
     ctx.response = Object.create(this.response);
     //从外面回调那里拿到原生的req
     ctx.req = ctx.request.req = req;
-    c;
+    ctx.res = ctx.response.res = res;
   }
 }
