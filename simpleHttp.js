@@ -8,3 +8,6 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
   console.log("正在监听3000端口");
 });
+//此时打开浏览器输入localhost:3000
+//客户端就会发来了请求
+//这里服务端响应
