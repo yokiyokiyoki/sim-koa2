@@ -8,18 +8,13 @@ class App {
   }
   //开启http server,传进来callback
   listen(...args) {
-    const server = http.createServer(this.callback());
+    const server = http.createServer(this.callbackFunc);
+
     server.listen(...args);
   }
   //挂载回调函数
   use(fn) {
     this.callbackFunc = fn;
-  }
-  //获取传进来所需的callback
-  callback() {
-    return (req, res) => {
-      this.callbackFunc(req, res);
-    };
   }
 }
 //这样外面引用可以用require
