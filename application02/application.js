@@ -16,4 +16,9 @@ class App {
     this.request = request;
     this.response = response;
   }
+  //监听端口，开启服务
+  listen(...args) {
+    let server = http.createServer(this.callbackFunc);
+    server.listen(...args);
+  }
 }
