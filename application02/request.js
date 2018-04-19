@@ -5,3 +5,4 @@ const req = {
     return url.parse(this.req.url, true).query;
   }
 };
+module.exports = req;
